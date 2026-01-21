@@ -1,0 +1,10 @@
+{
+  "name": "lite-usfm",
+  "version": "0.0.1",
+  "description": "Zero-dependency, minimal-assumption USFM-to-JSON parser.",
+  "scripts": {
+  },
+  "main": "src/index.js",
+  "author": "Brian MacIntosh",
+  "license": "ISC"
+}
