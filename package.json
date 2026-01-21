@@ -1,10 +1,21 @@
 {
   "name": "lite-usfm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Zero-dependency, minimal-assumption USFM-to-JSON parser.",
+  "keywords": [ "usfm", "json", "bible" ],
+  "homepage": "https://github.com/BrianMacIntosh/lite-usfm",
+  "bugs": "https://github.com/BrianMacIntosh/lite-usfm/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianMacIntosh/lite-usfm.git"
+  },
   "scripts": {
   },
   "main": "src/index.js",
-  "author": "Brian MacIntosh",
+  "author": {
+    "name": "Brian MacIntosh",
+    "email": "brianamacintosh@gmail.com",
+    "url": "https://brianmacintosh.com"
+  },
   "license": "ISC"
 }
