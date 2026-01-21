@@ -1,7 +1,13 @@
 
+/**
+ * Object for parsing USFM text into a sequence of Javascript objects.
+ */
 class UsfmJsonParser
 {
-	// override tag start handler functions
+	/**
+	 * Override tag start handler functions.
+	 * @private
+	 */
 	wordTagStartHandlers = {
 		//"f": function(tag) {
 		//	if (tag == "f")
@@ -15,7 +21,10 @@ class UsfmJsonParser
 		//}
 	}
 
-	// override tag end handler functions
+	/**
+	 * Override tag end handler functions.
+	 * @private
+	 */
 	wordTagEndHandlers = {
 		//"f": function(element, params) {
 		//	
@@ -124,9 +133,13 @@ class UsfmJsonParser
 		})
 		return true;
 	}
-
-	// lineCallback - If provided, each parsed line will be passed to the callback.
-	//		Otherwise, the lines are returned as an array.
+	
+	/**
+	 * Parses USFM text into a sequence of tags.
+	 * @param {string} text - Original USFM text to parse.
+	 * @param {function} lineCallback - If provided, each parsed tag will be passed to the callback instead of returned.
+	 * @returns If lineCallback was not provided, an array of parsed tags.
+	 */
 	parse(text, lineCallback)
 	{
 		const state = {}
@@ -173,6 +186,11 @@ class UsfmJsonParser
 		return state.lines
 	}
 
+	/** Parses a tag with an appended level number. If no number, 1 is assumed.
+	 * @param {string} key - The expected tag without numbers
+	 * @param {string} tag - The tag to parse
+	 * @returns {number|null} If the tag was matched, the number. Otherwise, null.
+	 */
 	parseLeveledTag(key, tag)
 	{
 		const match = tag.match(new RegExp(String.raw`^${key}(\d*)$`))
@@ -186,7 +204,10 @@ class UsfmJsonParser
 		}
 	}
 
-	// Tries to produce an empty element for the specified tag.
+	/**
+	 * Tries to produce an empty element for the specified tag.
+	 * @private
+	 */
 	handleWordTagStart(tag)
 	{
 		for (const key in this.wordTagStartHandlers)
@@ -200,7 +221,10 @@ class UsfmJsonParser
 		return { key: tag, element: this.wordTagStartHandlerFallback.bind(this)(tag) }
 	}
 
-	// Tries to finish off the element for a tag using parsed parameters
+	/**
+	 * Tries to finish off the element for a tag using parsed parameters.
+	 * @private
+	 */
 	handleWordTagEnd(key, element, paramStr)
 	{
 		// parse parameters
@@ -234,6 +258,10 @@ class UsfmJsonParser
 		}
 	}
 
+	/**
+	 * Tests if the character at the specified index can be part of a tag name.
+	 * @returns True if the character is allowed.
+	 */
 	isTagCharacter(str, index)
 	{
 		const code = str.charCodeAt(index);
@@ -243,7 +271,12 @@ class UsfmJsonParser
 			|| code == 45 // -
 	}
 
-	// Converts USFM text content into an array of elements. Not for top-level USFM.
+	/**
+	 * Converts USFM text content into an array of elements. Not for top-level USFM.
+	 * @param {number} lineNum 
+	 * @param {string} text 
+	 * @returns An array of text elements (strings) and character marker objects.
+	 */
 	parseText(lineNum, text)
 	{
 		text = text.trim()
