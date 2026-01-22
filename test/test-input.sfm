@@ -12,4 +12,4 @@
 \v 4 Pre-footnote \f + \fr 1:2 \ft Footnote text\f*
 \s2 Character Marker Tests
 \v 5 Pre-marker \zwd Marker|param="123"\zwd* post-marker
-\v 5 Pre-marker \zwd Marker \zwd Nested Marker|param="234"\zwd*|param="345"\zwd* post-marker
+\v 6 Pre-marker \zwd Marker \zwd Nested Marker|param="234"\zwd*|param="345"\zwd* post-marker
