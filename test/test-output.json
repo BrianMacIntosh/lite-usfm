@@ -54,10 +54,9 @@
             "tag": "fr",
             "content": [
               "1:2 ",
-              { "tag": "ft", "content": [] }
+              { "tag": "ft", "content": [ "Footnote text" ] }
             ]
-          },
-          "Footnote text"
+          }
         ]
       },
       " post-footnote"
@@ -75,10 +74,9 @@
             "tag": "fr",
             "content": [
               "1:2 ",
-              { "tag": "ft", "content": [] }
+              { "tag": "ft", "content": [ "Footnote text" ] }
             ]
-          },
-          "Footnote text"
+          }
         ]
       },
       " post-footnote"
@@ -97,10 +95,9 @@
             "tag": "fr",
             "content": [
               "1:2 ",
-              { "tag": "ft", "content": [] }
+              { "tag": "ft", "content": [ "Footnote text" ] }
             ]
-          },
-          "Footnote text"
+          }
         ]
       }
     ]

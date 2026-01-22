@@ -292,7 +292,6 @@ class UsfmJsonParser
 						: tagStack.findLastIndex(item => item.tag == tag)
 					if (matchIndex >= 0)
 					{
-						tagStack = tagStack.slice(0, matchIndex + 1)
 						const thisTag = tagStack.at(-1);
 						const tagContent = text.substring(thisTag.contentStart, tagStart)
 						const splitPoint = tagContent.indexOf('|', contentHandled - thisTag.contentStart)
@@ -306,7 +305,7 @@ class UsfmJsonParser
 						// close out tag
 						this.handleWordTagEnd(thisTag.key, thisTag.element, splitParams)
 
-						tagStack.pop()
+						tagStack = tagStack.slice(0, matchIndex)
 					}
 					else
 					{
