@@ -12,6 +12,9 @@
   "scripts": {
   },
   "main": "src/index.js",
+  "files": [
+    "src/", "LICENSE.md", "README.md"
+  ],
   "author": {
     "name": "Brian MacIntosh",
     "email": "brianamacintosh@gmail.com",
