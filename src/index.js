@@ -40,24 +40,12 @@ class UsfmJsonParser
 	}
 
 	rootTagHandlers = {
-		"id": function(tag, contents, state) {
-			if (tag == "id") // id - identification
-			{
-				const space = contents.indexOf(" ")
-				state.handleLine({ tag: "id", id: contents.substring(0, space) })
-				return true
-			}
-			else
-			{
-				return false
-			}
-		},
 		"v": function(tag, contents, state) {
 			if (tag == "v") // v - verse
 			{
 				const space = contents.indexOf(" ")
 				state.handleLine({
-					tag: "v",
+					tag: "v", tagClass: "v",
 					num: parseInt(contents.substring(0, space)),
 					content: this.parseText(state.lineNum, contents.substring(space + 1))
 				})
@@ -71,66 +59,35 @@ class UsfmJsonParser
 		"c": function(tag, contents, state) { // c - chapter
 			if (tag == "c")
 			{
-				state.handleLine({ tag: "c", num: parseInt(contents) })
+				state.handleLine({ tag: "c", tagClass: "c", num: parseInt(contents) })
 				return true
 			}
 			else
 			{
 				return false
 			}
-		},
-		"s#": function(tag, contents, state) { // s# - section heading
-			const level = this.parseLeveledTag("s", tag)
-			if (level !== null)
-			{
-				state.handleLine({
-					tag: "s",
-					level: level,
-					content: this.parseText(state.lineNum, contents)
-				})
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		},
-		"q#": function(tag, contents, state) { // q# - poetic line
-			const level = this.parseLeveledTag("q", tag)
-			if (level !== null)
-			{
-				state.handleLine({
-					tag: "q",
-					level: level,
-					content: this.parseText(state.lineNum, contents)
-				})
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		},
-		"b": function(tag, contents, state) {
-			if (tag == "b") // b - blank line
-			{
-				state.handleLine({ tag: "b" })
-				return true;
-			}
-			else
-			{
-				return false;
-			}
 		}
-		// "m": fallback
 	}
 
 	rootTagHandlerFallback = function(tag, contents, state) {
-		// fallback behavior is to treat the contents as text
-		state.handleLine({
-			tag: tag,
-			content: this.parseText(state.lineNum, contents)
-		})
+		const result = { tag: tag, tagClass: tag }
+
+		// parse tag contents
+		if (contents && contents.length > 0)
+		{
+			result.contentRaw = contents
+			result.content = this.parseText(state.lineNum, contents)
+		}
+
+		// parse level out of tag
+		const levelMatch = tag.match(/^([^\d]+)(\d+)$/)
+		if (levelMatch)
+		{
+			result.tagClass = levelMatch[1]
+			result.level = parseInt(levelMatch[2])
+		}
+
+		state.handleLine(result)
 		return true;
 	}
 	
