@@ -1,0 +1,146 @@
+[
+  {
+    "tag": "id", "tagClass": "id",
+    "contentRaw": "GEN",
+    "content": [ "GEN" ]
+  },
+  {
+    "tag": "h", "tagClass": "h",
+    "contentRaw": "Genesis",
+    "content": [ "Genesis" ]
+  },
+  {
+    "tag": "toc1", "tagClass": "toc", "level": 1,
+    "contentRaw": "Genesis",
+    "content": [ "Genesis" ]
+  },
+  {
+    "tag": "c", "tagClass": "c",
+    "num": 1
+  },
+  {
+    "tag": "s1", "tagClass": "s", "level": 1,
+	"contentRaw": "The Creation",
+    "content": [ "The Creation" ]
+  },
+  {
+    "tag": "r", "tagClass": "r",
+    "contentRaw": "(John 1:1–5; Hebrews 11:1–3)",
+    "content": [ "(John 1:1–5; Hebrews 11:1–3)" ]
+  },
+  {
+    "tag": "m", "tagClass": "m"
+  },
+  {
+    "tag": "v", "tagClass": "v",
+    "num": 1,
+    "content": [ "In the beginning God created the heavens and the earth." ]
+  },
+  {
+    "tag": "s2", "tagClass": "s", "level": 2,
+	"contentRaw": "Footnote Tests",
+    "content": [ "Footnote Tests" ]
+  },
+  {
+    "tag": "v", "tagClass": "v",
+    "num": 2,
+    "content": [
+      "Pre-footnote ",
+      {
+        "tag": "f",
+        "content": [
+          "+ ",
+          {
+            "tag": "fr",
+            "content": [
+              "1:2 ",
+              { "tag": "ft", "content": [] }
+            ]
+          },
+          "Footnote text"
+        ]
+      },
+      " post-footnote"
+    ]
+  },
+  {
+    "tag": "v", "tagClass": "v",
+    "num": 3,
+    "content": [
+      {
+        "tag": "f",
+        "content": [
+          "+ ",
+          {
+            "tag": "fr",
+            "content": [
+              "1:2 ",
+              { "tag": "ft", "content": [] }
+            ]
+          },
+          "Footnote text"
+        ]
+      },
+      " post-footnote"
+    ]
+  },
+  {
+    "tag": "v", "tagClass": "v",
+    "num": 4,
+    "content": [
+      "Pre-footnote ",
+      {
+        "tag": "f",
+        "content": [
+          "+ ",
+          {
+            "tag": "fr",
+            "content": [
+              "1:2 ",
+              { "tag": "ft", "content": [] }
+            ]
+          },
+          "Footnote text"
+        ]
+      }
+    ]
+  },
+  {
+    "tag": "s2", "tagClass": "s", "level": 2,
+	"contentRaw": "Character Marker Tests",
+    "content": [ "Character Marker Tests" ]
+  },
+  {
+    "tag": "v", "tagClass": "v",
+    "num": 5,
+    "content": [
+      "Pre-marker ",
+      {
+        "tag": "zwd",
+        "content": [ "Marker" ],
+        "param": "123"
+      },
+      " post-marker"
+    ]
+  },
+  {
+    "tag": "v", "tagClass": "v",
+    "num": 5,
+    "content": [
+      "Pre-marker ",
+      {
+        "tag": "zwd",
+        "content": [
+          "Marker ",
+          {
+            "tag": "zwd",
+            "content": [ "Nested Marker" ],
+            "param": "234"
+          }
+        ],
+        "param": "345"
+      },
+      " post-marker"
+    ]
+  }
+]

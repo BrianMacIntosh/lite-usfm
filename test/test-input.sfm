@@ -1,0 +1,15 @@
+\id GEN
+\h Genesis
+\toc1 Genesis
+\c 1
+\s1 The Creation
+\r (John 1:1–5; Hebrews 11:1–3)
+\m
+\v 1 In the beginning God created the heavens and the earth.
+\s2 Footnote Tests
+\v 2 Pre-footnote \f + \fr 1:2 \ft Footnote text\f* post-footnote
+\v 3 \f + \fr 1:2 \ft Footnote text\f* post-footnote
+\v 4 Pre-footnote \f + \fr 1:2 \ft Footnote text\f*
+\s2 Character Marker Tests
+\v 5 Pre-marker \zwd Marker|param="123"\zwd* post-marker
+\v 5 Pre-marker \zwd Marker \zwd Nested Marker|param="234"\zwd*|param="345"\zwd* post-marker
