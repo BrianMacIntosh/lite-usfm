@@ -36,7 +36,7 @@ class UsfmJsonParser
 	}
 
 	wordTagEndHandlerFallback = function(element, params) {
-		Object.assign(element, params)
+		if (Object.keys(params).length > 0) element.params = params
 	}
 
 	rootTagHandlers = {

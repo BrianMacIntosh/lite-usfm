@@ -115,7 +115,7 @@
       {
         "tag": "zwd",
         "content": [ "Marker" ],
-        "param": "123"
+        "params": { "param": "123" }
       },
       " post-marker"
     ]
@@ -132,10 +132,10 @@
           {
             "tag": "zwd",
             "content": [ "Nested Marker" ],
-            "param": "234"
+            "params": { "param": "234" }
           }
         ],
-        "param": "345"
+        "params": { "param": "345" }
       },
       " post-marker"
     ]
