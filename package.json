@@ -1,6 +1,6 @@
 {
   "name": "lite-usfm",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Zero-dependency, minimal-assumption USFM-to-JSON parser.",
   "keywords": [ "usfm", "json", "bible" ],
   "homepage": "https://github.com/BrianMacIntosh/lite-usfm",
