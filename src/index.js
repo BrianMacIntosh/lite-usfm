@@ -47,6 +47,7 @@ class UsfmJsonParser
 				state.handleLine({
 					tag: "v", tagClass: "v",
 					num: parseInt(contents.substring(0, space)),
+					contentRaw: contents,
 					content: this.parseText(state.lineNum, contents.substring(space + 1))
 				})
 				return true
@@ -59,7 +60,7 @@ class UsfmJsonParser
 		"c": function(tag, contents, state) { // c - chapter
 			if (tag == "c")
 			{
-				state.handleLine({ tag: "c", tagClass: "c", num: parseInt(contents) })
+				state.handleLine({ tag: "c", tagClass: "c", num: parseInt(contents), contentRaw: contents })
 				return true
 			}
 			else

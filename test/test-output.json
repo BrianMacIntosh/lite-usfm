@@ -16,11 +16,12 @@
   },
   {
     "tag": "c", "tagClass": "c",
-    "num": 1
+    "num": 1,
+    "contentRaw": "1"
   },
   {
     "tag": "s1", "tagClass": "s", "level": 1,
-	"contentRaw": "The Creation",
+	  "contentRaw": "The Creation",
     "content": [ "The Creation" ]
   },
   {
@@ -34,16 +35,18 @@
   {
     "tag": "v", "tagClass": "v",
     "num": 1,
+    "contentRaw": "1 In the beginning God created the heavens and the earth.",
     "content": [ "In the beginning God created the heavens and the earth." ]
   },
   {
     "tag": "s2", "tagClass": "s", "level": 2,
-	"contentRaw": "Footnote Tests",
+	  "contentRaw": "Footnote Tests",
     "content": [ "Footnote Tests" ]
   },
   {
     "tag": "v", "tagClass": "v",
     "num": 2,
+    "contentRaw": "2 Pre-footnote \\f + \\fr 1:2 \\ft Footnote text\\f* post-footnote",
     "content": [
       "Pre-footnote ",
       {
@@ -65,6 +68,7 @@
   {
     "tag": "v", "tagClass": "v",
     "num": 3,
+    "contentRaw": "3 \\f + \\fr 1:2 \\ft Footnote text\\f* post-footnote",
     "content": [
       {
         "tag": "f",
@@ -85,6 +89,7 @@
   {
     "tag": "v", "tagClass": "v",
     "num": 4,
+    "contentRaw": "4 Pre-footnote \\f + \\fr 1:2 \\ft Footnote text\\f*",
     "content": [
       "Pre-footnote ",
       {
@@ -104,12 +109,13 @@
   },
   {
     "tag": "s2", "tagClass": "s", "level": 2,
-	"contentRaw": "Character Marker Tests",
+	  "contentRaw": "Character Marker Tests",
     "content": [ "Character Marker Tests" ]
   },
   {
     "tag": "v", "tagClass": "v",
     "num": 5,
+    "contentRaw": "5 Pre-marker \\zwd Marker|param=\"123\"\\zwd* post-marker",
     "content": [
       "Pre-marker ",
       {
@@ -122,7 +128,8 @@
   },
   {
     "tag": "v", "tagClass": "v",
-    "num": 5,
+    "num": 6,
+    "contentRaw": "6 Pre-marker \\zwd Marker|123\\zwd* post-marker",
     "content": [
       "Pre-marker ",
       {
@@ -135,7 +142,8 @@
   },
   {
     "tag": "v", "tagClass": "v",
-    "num": 6,
+    "num": 7,
+    "contentRaw": "7 Pre-marker \\zwd Marker \\zwd Nested Marker|param=\"234\"\\zwd*|param=\"345\"\\zwd* post-marker",
     "content": [
       "Pre-marker ",
       {
