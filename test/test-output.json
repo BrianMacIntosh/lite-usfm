@@ -122,6 +122,19 @@
   },
   {
     "tag": "v", "tagClass": "v",
+    "num": 5,
+    "content": [
+      "Pre-marker ",
+      {
+        "tag": "zwd",
+        "content": [ "Marker" ],
+        "params": { "_default": "123" }
+      },
+      " post-marker"
+    ]
+  },
+  {
+    "tag": "v", "tagClass": "v",
     "num": 6,
     "content": [
       "Pre-marker ",

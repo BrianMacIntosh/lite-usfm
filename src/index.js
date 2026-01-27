@@ -186,6 +186,7 @@ class UsfmJsonParser
 	{
 		// parse parameters
 		const params = {}
+		var hasParams = false
 		var paramKeyStart = 0
 		while (true)
 		{
@@ -198,9 +199,17 @@ class UsfmJsonParser
 				//TODO: error checking
 				params[paramKey] = paramStr.substring(valStart + 1, valEnd)
 				paramKeyStart = valEnd + 1
+				hasParams = true
 			}
 			else
 			{
+				// if no params were named, use the whole string as a default param
+				if (!hasParams && paramStr)
+				{
+					params["_default"] = paramStr.trim()
+					hasParams = true
+				}
+
 				break;
 			}
 		}
