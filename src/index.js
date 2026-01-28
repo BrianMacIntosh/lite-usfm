@@ -355,5 +355,24 @@ class UsfmJsonParser
 
 		return rootNode
 	}
+
+	/**
+	 * Flattens a content array into a simple string.
+	 * @param {*} content 
+	 */
+	static flattenContent(content)
+	{
+		var result = ""
+		for (const item of content)
+		{
+			if (Array.isArray(item))
+				result += UsfmJsonParser.flattenContent(item)
+			else if (item.content)
+				result += UsfmJsonParser.flattenContent(item.content)
+			else
+				result += item.toString()
+		}
+		return result
+	}
 }
 module.exports = UsfmJsonParser
