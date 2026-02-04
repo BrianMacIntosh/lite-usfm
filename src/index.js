@@ -191,6 +191,8 @@ class UsfmJsonParser
 		var paramKeyStart = 0
 		while (true)
 		{
+			if (paramStr === null) break
+			
 			var paramSep = paramStr.indexOf('=', paramKeyStart)
 			if (paramSep >= 0)
 			{
@@ -205,7 +207,7 @@ class UsfmJsonParser
 			else
 			{
 				// if no params were named, use the whole string as a default param
-				if (!hasParams && paramStr)
+				if (!hasParams)
 				{
 					params["_default"] = paramStr.trim()
 					hasParams = true
@@ -306,7 +308,7 @@ class UsfmJsonParser
 						const tagContent = text.substring(thisTag.contentStart, tagStart)
 						const splitPoint = tagContent.indexOf('|', contentHandled - thisTag.contentStart)
 						const splitContent = splitPoint >= 0 ? tagContent.substring(0, splitPoint) : tagContent
-						const splitParams = splitPoint >= 0 ? tagContent.substring(splitPoint + 1) : ""
+						const splitParams = splitPoint >= 0 ? tagContent.substring(splitPoint + 1) : null
 
 						// close out raw text
 						closeOutText(thisTag.contentStart + splitContent.length - 1)
