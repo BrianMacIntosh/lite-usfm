@@ -254,7 +254,11 @@ class UsfmJsonParser
 		
 		const closeOutText = function(throughIndex)
 		{
-			if (contentHandled <= throughIndex)
+			if (tagStack.length == 0)
+			{
+				console.error(`Attempt to close with no tag open (at line ${lineNum})`)
+			}
+			else if (contentHandled <= throughIndex)
 			{
 				const newElement = text.substring(contentHandled, throughIndex + 1)
 				const parentElement = tagStack.at(-1).element
