@@ -365,14 +365,18 @@ class UsfmJsonParser
 	/**
 	 * Flattens a content array into a simple string.
 	 * @param {*} content 
+	 * @param {*} ignoreTags List of string tags to filter out
 	 */
-	static flattenContent(content)
+	static flattenContent(content, ignoreTags)
 	{
+		ignoreTags = ignoreTags || [ "f" ]
 		var result = ""
 		for (const item of content)
 		{
 			if (Array.isArray(item))
 				result += UsfmJsonParser.flattenContent(item)
+			else if (ignoreTags.includes(item.tag))
+				; // skip; no-op
 			else if (item.content)
 				result += UsfmJsonParser.flattenContent(item.content)
 			else
