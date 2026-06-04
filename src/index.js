@@ -180,12 +180,12 @@ class UsfmJsonParser
 	}
 
 	/**
-	 * Tries to finish off the element for a tag using parsed parameters.
-	 * @private
+	 * Parses a string of tag parameters like 'key="value"' into key-value pairs.
+	 * @param {string} paramStr 
+	 * @returns An object containing parameter key-value pairs (strings).
 	 */
-	handleWordTagEnd(key, element, paramStr)
+	static parseParameterString(paramStr)
 	{
-		// parse parameters
 		const params = {}
 		var hasParams = false
 		var paramKeyStart = 0
@@ -216,6 +216,17 @@ class UsfmJsonParser
 				break;
 			}
 		}
+		return params
+	}
+
+	/**
+	 * Tries to finish off the element for a tag using parsed parameters.
+	 * @private
+	 */
+	handleWordTagEnd(key, element, paramStr)
+	{
+		// parse parameters
+		const params = UsfmJsonParser.parseParameterString(paramStr)
 
 		if (this.wordTagEndHandlers[key])
 		{
