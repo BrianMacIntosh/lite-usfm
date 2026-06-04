@@ -380,6 +380,8 @@ class UsfmJsonParser
 	 */
 	static flattenContent(content, ignoreTags)
 	{
+		if (typeof content == 'string' || content instanceof String) return content
+		
 		ignoreTags = ignoreTags || [ "f" ]
 		var result = ""
 		for (const item of content)
