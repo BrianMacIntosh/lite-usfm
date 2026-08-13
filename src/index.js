@@ -198,6 +198,11 @@ class UsfmJsonParser
 			{
 				const paramKey = paramStr.substring(paramKeyStart, paramSep).trim()
 				var valStart = paramStr.indexOf("\"", paramSep)
+				if (valStart < 0)
+				{
+					console.error(`USFM parameter ${paramKey} missing quotes (${paramStr}).`)
+					break;
+				}
 				var valEnd = paramStr.indexOf("\"", valStart + 1) //TODO: handle escaped quotes
 				//TODO: error checking
 				params[paramKey] = paramStr.substring(valStart + 1, valEnd)
@@ -249,6 +254,7 @@ class UsfmJsonParser
 			|| code >= 65 && code <= 90 // A-Z
 			|| code >= 97 && code <= 122 // a-z
 			|| code == 45 // -
+			|| code == 43 // +
 	}
 
 	/**
@@ -308,6 +314,17 @@ class UsfmJsonParser
 				}
 
 				var tag = text.substring(tagStart + 1, tagEndPlus) // drop leading \
+
+				if (tag.charCodeAt(0) == 43) // +
+				{
+					// open tags can stay open
+					tag = text.substring(tagStart + 1, tagEndPlus) // drop leading +
+				}
+				else
+				{
+					// close all open tags
+				}
+
 				if (tag[tag.length - 1] == '*') // close tag
 				{
 					tag = tag.substring(0, tag.length - 1) // drop *
